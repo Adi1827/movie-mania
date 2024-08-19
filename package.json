@@ -1,0 +1,22 @@
+{
+  "name": "basic-react-app",
+  "version": "1.0.0",
+  "description": "Basic app",
+  "scripts": {
+    "start": "parcel Basic.html",
+    "build": "parcel build Basic.html",
+    "test": "test"
+  },
+  "author": "Aditya Dalwadi",
+  "license": "ISC",
+  "dependencies": {
+    "formik": "^2.4.6",
+    "parcel": "^2.12.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.23.0"
+  },
+  "devDependencies": {
+    "process": "^0.11.10"
+  }
+}
