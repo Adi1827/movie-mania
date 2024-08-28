@@ -69,7 +69,8 @@ return movieList?.length<1 ? (
             onChange={
             (e)=>{
                 setSearchText(e.target.value.trimStart());
-            }}
+            }} 
+            required
             />
 
          <button type="submit">🔎</button>
