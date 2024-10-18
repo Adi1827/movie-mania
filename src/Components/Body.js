@@ -5,13 +5,18 @@ import Shimmer from './Shimmer';
 
 const Body = () =>{
     const [searchText,setSearchText] = useState("");
-    const [movieList,setMovieList] = useState("");
+    const [movieList,setMovieList] = useState([]);
     const [filteredMovie, setFilteredMovie ] = useState([]);
-    let [pageValue,setPageValue] = useState(1)
+    const [sortButton,setSortButton] = useState("visible");
+    let [pageValue,setPageValue] = useState(1);
+    let [sortMovies, setSortMovies] = useState("popularity")
 
 useEffect(()=>{
-    if(searchText === "")
-        setFilteredMovie(movieList)  
+    if(searchText === ""){
+        setSortButton("visible")
+        setFilteredMovie(movieList)}
+    else
+        setSortButton("hidden")
 },[searchText])
 
 useEffect(()=>{
@@ -21,7 +26,7 @@ useEffect(()=>{
         searchData();
     document.title = "MovieMania";
     window.scroll({top:0,left:100,behavior:"smooth"}) 
-},[pageValue])
+},[pageValue,sortMovies])
 
 const searchData = async() =>{
     try{
@@ -38,7 +43,7 @@ const searchData = async() =>{
 const fetchData = async () =>{
     try{
         console.log("Movie Data Fetched");
-        const response = await fetch("https://api.themoviedb.org/3/discover/movie?include_adult=false&language=en-US&page="+pageValue+"&region=US&sort_by=popularity.desc&api_key=44867af4999a85b16e0ca84faa75a376");
+        const response = await fetch("https://api.themoviedb.org/3/discover/movie?include_adult=false&language=en-US&page="+pageValue+"&region=US&sort_by="+sortMovies+".desc&api_key=44867af4999a85b16e0ca84faa75a376");
     const json = await response.json();
     setMovieList(json.results);
     setFilteredMovie(json.results);
@@ -47,8 +52,9 @@ const fetchData = async () =>{
         console.log(err);
     }
 }
-    
+
 return movieList?.length<1 ? (
+    // Shimmer UI #Loading
     <>
     <form action='#'
         onSubmit = {
@@ -70,7 +76,13 @@ return movieList?.length<1 ? (
             }}
             required
             />
-
+            <select value={sortMovies} name="sortBy" id="sortByOptions" onChange={(event) => {setSortMovies(event.target.value)}} style={{visibility:sortButton}}>
+            <option value="" disabled>Select Your Mood</option>
+            <option value={"popularity"}>Popularity</option>
+            <option value={"primary_release_date"}>Release Date</option>
+            <option value={"vote_count"}>Average Rating</option>
+            <option value={"revenue"}>Revenue</option>
+        </select>
          <button type="submit">🔎</button>
         </div>
         </form>
@@ -79,10 +91,10 @@ return movieList?.length<1 ? (
 ) : 
 (
         <>
-        <form action='#'
-        onSubmit = {
-            ()=>
+    <form onSubmit = {
+            (e)=>
             {
+                e.preventDefault();
                 searchData();
                 setPageValue(1);
             }}
@@ -99,10 +111,19 @@ return movieList?.length<1 ? (
             }}
             required
             />
-
+            <select value={sortMovies} name="sortBy" id="sortByOptions" onChange={(event) => {
+                setSortMovies(event.target.value)
+                }} style={{visibility:sortButton}}>
+            <option value="" disabled>Select Your Mood</option>
+            <option value={"popularity"}>Popularity</option>
+            <option value={"primary_release_date"}>Release Date</option>
+            <option value={"vote_count"}>Average Rating</option>
+            <option value={"revenue"}>Revenue</option>
+        </select>
          <button type="submit">🔎</button>
         </div>
-        </form>
+    </form>
+        
     <div className="movieList">
     {
         filteredMovie?.length<1 ?
