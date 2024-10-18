@@ -5,6 +5,7 @@ const About = () => {
         <>
         <h1>About</h1>
         <Link to='profile'>Profile?</Link>
+        <Link to='profileclass'>ProfileClass</Link>
         <Outlet/>
         </>
     )

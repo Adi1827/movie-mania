@@ -19,13 +19,14 @@ useEffect(()=>{
         fetchData();
     else   
         searchData();
+    document.title = "MovieMania";
     window.scroll({top:0,left:100,behavior:"smooth"}) 
 },[pageValue])
 
 const searchData = async() =>{
     try{
         console.log("Search Data Fetched");
-        const response = await fetch("https://api.themoviedb.org/3/search/multi?query="+searchText+"&include_adult=true&language=en-US&page="+pageValue+"&api_key=44867af4999a85b16e0ca84faa75a376");
+        const response = await fetch("https://api.themoviedb.org/3/search/multi?query="+searchText+"&include_adult=false&language=en-US&page="+pageValue+"&api_key=44867af4999a85b16e0ca84faa75a376");
         const json = await response.json();
         setFilteredMovie(json.results);
     }
@@ -37,7 +38,7 @@ const searchData = async() =>{
 const fetchData = async () =>{
     try{
         console.log("Movie Data Fetched");
-        const response = await fetch("https://api.themoviedb.org/3/discover/movie?include_adult=true&language=en-US&page="+pageValue+"&region=US&sort_by=vote_count.desc&api_key=44867af4999a85b16e0ca84faa75a376");
+        const response = await fetch("https://api.themoviedb.org/3/discover/movie?include_adult=false&language=en-US&page="+pageValue+"&region=US&sort_by=popularity.desc&api_key=44867af4999a85b16e0ca84faa75a376");
     const json = await response.json();
     setMovieList(json.results);
     setFilteredMovie(json.results);
@@ -48,7 +49,33 @@ const fetchData = async () =>{
 }
     
 return movieList?.length<1 ? (
+    <>
+    <form action='#'
+        onSubmit = {
+            ()=>
+            {
+                searchData();
+                setPageValue(1);
+            }}
+        className="searchForm--1"
+        >
+            <div className="container">
+            <input 
+            type="search" 
+            className="search-btn" 
+            value = {searchText} 
+            onChange={
+            (e)=>{
+                setSearchText(e.target.value.trimStart());
+            }}
+            required
+            />
+
+         <button type="submit">🔎</button>
+        </div>
+        </form>
     <Shimmer/>
+    </>
 ) : 
 (
         <>
@@ -69,7 +96,7 @@ return movieList?.length<1 ? (
             onChange={
             (e)=>{
                 setSearchText(e.target.value.trimStart());
-            }} 
+            }}
             required
             />
 
@@ -95,8 +122,9 @@ return movieList?.length<1 ? (
                 if(pageValue>1){
                 setPageValue(--pageValue)
             }
-        }
-            }>Previous</button>
+        }}
+        style = {{visibility: pageValue === 1 ? "hidden" : 'visible'}}
+            >Previous</button>
                 <h1 className = "pageNumber">Page {pageValue}</h1>
             <button onClick={()=>{setPageValue(++pageValue)}}>Next</button>
     </nav>

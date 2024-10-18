@@ -3,6 +3,7 @@ import React from 'react'
 class Profile extends React.Component{
     constructor(props){
         super(props);
+        // Creating Variable
         this.state = {
             count : 1
         }
@@ -13,7 +14,9 @@ class Profile extends React.Component{
             <>
             <div className="">
                 <p>Div <i>{this.state.count}</i></p>
-                <button></button>
+                <button onClick={()=> this.setState({
+                    count: ++this.state.count
+                })}>SetCount</button>
             </div>
             </>
         )
