@@ -1,10 +1,10 @@
 {
-  "name": "basic-react-app",
+  "name": "movie-react-app",
   "version": "1.0.0",
-  "description": "Basic app",
+  "description": "Movie app",
   "scripts": {
-    "start": "parcel Basic.html",
-    "build": "parcel build Basic.html",
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "test"
   },
   "author": "Aditya Dalwadi",
