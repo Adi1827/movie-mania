@@ -58,35 +58,27 @@ a:link,a:active{
     padding:10px;
 }
 /*===================search box==================== */
-.container{
-    display: flex;
-    justify-content: center;
-
+.container {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center elements */
+    align-items: center; /* Align items vertically center */
+    gap: 10px; /* Optional: space between elements */
 }
-.container>input{
+
+.container > input {
     background-color: transparent;
     border-radius: 10px;
     height: 45px;
-    width: 300px;
+    width: 300px; /* Keep the width for the input */
     transition: 0.3s ease-in-out;
     border: 5px solid #DFD0B8;
-    &::placeholder{
-        text-indent: 10px;
-        font-weight: 600;
-        color:#DFD0B8;
-    }
-    &:focus{
-        caret-shape: block;
-        caret-color: #ffffff;
-        background-color: #DFD0B8;
-        outline:none;
-    }
 }
-.container>button{
+
+.container > button {
     cursor: pointer;
     font-size: 150%;
     background-color: transparent;
-    border:none;
+    border: none;
     margin-bottom: 10px;
 }
 
@@ -226,4 +218,36 @@ a:link,a:active{
     display:flex;
     flex-wrap: wrap;
     justify-content:space-around;
+}
+/* Styling for the select box */
+select {
+    background-color: transparent;
+    border-radius: 10px;
+    height: 45px; /* Match the input height */
+    width: 200px; /* Adjust width to fit on the same line */
+    border: 5px solid #DFD0B8; /* Match input border */
+    color: #DFD0B8; /* Text color */
+    font-size: 1rem; /* Font size */
+    font-weight: 600; /* Font weight */
+    padding: 0 10px; /* Padding for aesthetics */
+    transition: background-color 0.3s ease-in-out, border 0.3s ease-in-out; /* Smooth transitions */
+}
+
+/* Placeholder styling for the select box */
+select:focus {
+    background-color: #DFD0B8; /* Change background on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Styling for the select options */
+option {
+    background-color: #948979; /* Background color for options */
+    color: #DFD0B8; /* Text color for options */
+    padding: 10px; /* Padding for options */
+}
+
+/* Hover effect for options */
+option:hover {
+    background-color: #DFD0B8; /* Change background on hover */
+    color: #483C46; /* Change text color on hover */
 }
