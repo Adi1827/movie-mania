@@ -25,5 +25,5 @@ npm start
 ```
 
 ## 🚀 Live Demo
--**Explore the app on Netlify:** <a href="https://moviemania123.netlify.app/" target="_blank">Movie Mania</a>
+-**Explore the app on Netlify:** <a href="https://moviemania123.netlify.app/" target="_blank">Movie Mania</a> <a href="https://readme.com/" target="_blank">ReadMe</a>
 
