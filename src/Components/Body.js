@@ -78,9 +78,9 @@ return movieList?.length<1 ? (
             />
             <select value={sortMovies} name="sortBy" id="sortByOptions" onChange={(event) => {setSortMovies(event.target.value)}} style={{visibility:sortButton}}>
             <option value="" disabled>Select Your Mood</option>
+            <option value={"vote_count"}>Rating</option>
             <option value={"popularity"}>Popularity</option>
-            <option value={"primary_release_date"}>Release Date</option>
-            <option value={"vote_count"}>Average Rating</option>
+            <option value={"primary_release_date"}>Release</option>
             <option value={"revenue"}>Revenue</option>
         </select>
          <button type="submit">🔎</button>
