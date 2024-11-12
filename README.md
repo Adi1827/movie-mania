@@ -1,4 +1,3 @@
-https://moviemania123.netlify.app/
 # Movie Mania 🎬
 
 **Movie Mania** is a movie exploration app that showcases popular and trending movies. Built with HTML, CSS, and JavaScript, this project offers a dynamic and responsive user interface for browsing movie data.
