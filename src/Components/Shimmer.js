@@ -1,20 +1,18 @@
 const Shimmer = () =>{
     return (
-        <div className="movieList">
-            {/* {
-                Array(10).fill("").map((_,index)=>{ */}
-                    <div className="shimmerCard"></div>
-                    <div className="shimmerCard"></div>
-                    <div className="shimmerCard"></div>
-                    <div className="shimmerCard"></div>
-                    <div className="shimmerCard"></div>
-                    <div className="shimmerCard"></div>
-                    <div className="shimmerCard"></div>
-                    <div className="shimmerCard"></div>
-                    <div className="shimmerCard"></div>
-                    <div className="shimmerCard"></div>
-                {/* })
-            } */}
+        <div className="flex flex-wrap justify-around">
+                    <div className="w-[300px] h-[500px] rounded-[10px] bg-[lightgrey] m-[20px] [box-shadow:10px_10px_10px_10px] animate-pulse"></div>
+                    <div className="w-[300px] h-[500px] rounded-[10px] bg-[lightgrey] m-[20px] [box-shadow:10px_10px_10px_10px] animate-pulse"></div>
+                    <div className="w-[300px] h-[500px] rounded-[10px] bg-[lightgrey] m-[20px] [box-shadow:10px_10px_10px_10px] animate-pulse"></div>
+                    <div className="w-[300px] h-[500px] rounded-[10px] bg-[lightgrey] m-[20px] [box-shadow:10px_10px_10px_10px] animate-pulse"></div>
+                    <div className="w-[300px] h-[500px] rounded-[10px] bg-[lightgrey] m-[20px] [box-shadow:10px_10px_10px_10px] animate-pulse"></div>
+                    <div className="w-[300px] h-[500px] rounded-[10px] bg-[lightgrey] m-[20px] [box-shadow:10px_10px_10px_10px] animate-pulse"></div>
+                    <div className="w-[300px] h-[500px] rounded-[10px] bg-[lightgrey] m-[20px] [box-shadow:10px_10px_10px_10px] animate-pulse"></div>
+                    <div className="w-[300px] h-[500px] rounded-[10px] bg-[lightgrey] m-[20px] [box-shadow:10px_10px_10px_10px] animate-pulse"></div>
+                    <div className="w-[300px] h-[500px] rounded-[10px] bg-[lightgrey] m-[20px] [box-shadow:10px_10px_10px_10px] animate-pulse"></div>
+                    <div className="w-[300px] h-[500px] rounded-[10px] bg-[lightgrey] m-[20px] [box-shadow:10px_10px_10px_10px] animate-pulse"></div>
+                    <div className="w-[300px] h-[500px] rounded-[10px] bg-[lightgrey] m-[20px] [box-shadow:10px_10px_10px_10px] animate-pulse"></div>
+                    <div className="w-[300px] h-[500px] rounded-[10px] bg-[lightgrey] m-[20px] [box-shadow:10px_10px_10px_10px] animate-pulse"></div>
     </div>
     )
 }

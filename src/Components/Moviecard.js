@@ -1,3 +1,4 @@
+import posterHolder from '../assets/img/poster-holder.jpg';
 import { useEffect, useState } from "react";
 
 const MovieCard = ({...movieItem}) => {
@@ -16,11 +17,13 @@ const MovieCard = ({...movieItem}) => {
         setMovieGenre(genreList.filter((id)=>movieItem?.genre_ids?.includes(id.id)));
     }
     return(
-        <div className="card">
-            <img src={"https://image.tmdb.org/t/p/w500/"+movieItem?.poster_path} alt="Not found" />
-            <h2 className="movie-name">{movieItem.title?movieItem.title:<p>Not Found</p>}</h2>
-            {/* <h2 className="movie-year">{movieItem?.release_date?.split('-')[0]}</h2> */}
-            {/* <h4 className="movie-genre">{movieGenre?.map((genre)=>{return genre.name}).join(', ')}</h4> */}
+        <div className="w-[250px] h-[600px] mt-5 mr-[6px] shadow-default overflow-hidden rounded-lg ease-in-out hover:shadow-hover hover:[text-shadow:1px_0_10px_#FFF] duration-200">
+            <img
+            className='w-full h-[400px] m-auto block ease-in-out hover:shadow-card duration-300' 
+            src={(movieItem.poster_path!== undefined) ? "https://image.tmdb.org/t/p/w500/"+movieItem?.poster_path : posterHolder} alt="Not found" />
+            <h2 className="text-center text-[#483C46] p-2.5 text-2xl font-extrabold overflow-clip">{movieItem.title ? movieItem.title : movieItem.name}</h2>
+            {/* <h2 className="text-center text-[#483C46] p-2.5 text-2xl font-extrabold overflow-clip">{movieItem?.release_date?.split('-')[0]}</h2>
+            <h4 className="text-center text-[#483C46] p-2.5 text-2xl font-extrabold overflow-clip">{movieGenre?.map((genre)=>{return genre.name}).join(', ')}</h4> */}
         </div>
     );
 }

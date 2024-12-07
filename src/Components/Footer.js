@@ -1,6 +1,6 @@
 const Footer = () =>{
     return(
-        <h1>Footer</h1>
+        <h1 className="text-center text-4xl mt-10">Footer</h1>
     );
 }
 export default Footer;
