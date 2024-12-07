@@ -1,6 +1,6 @@
 # Movie Mania 🎬
 
-**Movie Mania** is a movie exploration app that showcases popular and trending movies. Built with HTML, CSS, and with ReactJS that fetches movie data from the TMDB API. The app allows users to explore popular and trending movies with an engaging and responsive interface.
+**Movie Mania** is a movie exploration app that showcases popular and trending movies. Built with HTML ,ReactJS  and with tailwindcss that fetches movie data from the TMDB API. The app allows users to explore popular and trending movies with an engaging and responsive interface.
 
 ## 🌟 Features
 
@@ -10,7 +10,7 @@
 
 ## 📂 Tech Stack
 
-- **Frontend**: ReactJS, CSS
+- **Frontend**: ReactJS, tailwindcss
 - **Data Source**: [The Movie Database (TMDB) API](https://www.themoviedb.org/documentation/api)
 
 ## 📦 Installation
