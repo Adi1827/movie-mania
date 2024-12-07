@@ -1,18 +1,18 @@
-import React from 'react';
+import React,{Suspense} from 'react';
 import ReactDOM from 'react-dom/client';
 import Navbar from './Components/Navbar';
 import Body from './Components/Body';
 import Footer from './Components/Footer';
-import About from './Components/About';
-import Contact from './Components/Contact'
 import Error from './Components/Error';
 import MovieInfo from './Components/MovieInfo';
-import Login from './Components/Login';
-import Profile from './Components/Profile';
-import ProfileClass from './Components/ProfileClass';
 import { RouterProvider, createBrowserRouter} from 'react-router-dom';
 import { Outlet } from "react-router-dom";
 
+const Login = React.lazy(()=>import('./Components/Login'));
+const About = React.lazy(()=>import('./Components/About'));
+const Contact = React.lazy(()=>import('./Components/Contact'));
+const Profile = React.lazy(()=>import('./Components/Profile'));
+const ProfileClass = React.lazy(()=>import('./Components/ProfileClass'));
 const AppLayout = () =>{
     return (
     <>
@@ -35,21 +35,21 @@ const routerConfig = createBrowserRouter([
       },
       {
         path:'/about',
-        element:<About/>,
+        element:<Suspense><About/></Suspense>,
         children:[
           {
           path:'profile',
-          element:<Profile/>
+          element:<Suspense><Profile/></Suspense>
         }
         ,{
           path:"profileclass",
-          element:<ProfileClass/>
+          element:<Suspense><ProfileClass/></Suspense>
         }
       ]
       },
       {
         path:'contact',
-        element:<Contact/>
+        element:<Suspense><Contact/></Suspense>
       },
       {
         path:'/movies/:id',
@@ -57,7 +57,7 @@ const routerConfig = createBrowserRouter([
       },
       {
         path:'login',
-        element : <Login/>
+        element : <Suspense><Login/></Suspense>
       }
     ] 
   }
