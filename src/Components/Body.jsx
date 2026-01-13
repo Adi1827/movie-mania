@@ -63,15 +63,6 @@ const Body = () => {
         }
     }
 
-    const handlePageInput = () => {
-        const pageNum = prompt("Enter page number:");
-        if (pageNum && !isNaN(pageNum) && pageNum > 0 && pageNum <= totalPages) {
-            setPageValue(parseInt(pageNum));
-        } else if (pageNum) {
-            alert(`Please enter a valid page number between 1 and ${totalPages}`);
-        }
-    };
-
     const [pageInput, setPageInput] = useState("");
 
     return (
