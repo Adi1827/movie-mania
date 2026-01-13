@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/img/moviemania_Logo.webp"
-import { useState }  from "react";
-// import Login from  './LogIn';
 
 const Navbar = () =>{
     const Title = () =>(
