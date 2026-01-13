@@ -13,11 +13,15 @@ module.exports = {
       },
       fontFamily: {
         sans: ["system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", "Helvetica Neue", "sans-serif"],
+        inter: ['Inter', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
       },
       backgroundColor: {
         'primary': '#948979'
       },
-      
+      screens: {
+        'xs': '375px',
+      }
     },
   },
   plugins: [],
