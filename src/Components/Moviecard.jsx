@@ -67,7 +67,7 @@ const MovieCard = ({ ...movieItem }) => {
 
                         {/* Movie Type Badge */}
                         <span className="px-3 py-1 bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30 rounded-full text-white text-sm font-medium">
-                            {movieItem.title ? '🎬 Movie' : '📺 TV Show'}
+                            {movieItem?.title ? '🎬 Movie' : '📺 TV Show'}
                         </span>
                     </div>
 
@@ -75,7 +75,7 @@ const MovieCard = ({ ...movieItem }) => {
                     <div className="space-y-2">
                         <h4 className="text-gray-300 font-medium text-xs sm:text-xs md:text-sm font-inter">Genres:</h4>
                         <div className="flex flex-wrap gap-1 sm:gap-2">
-                            {movieGenre?.slice(0, 2).map((genre, index) => (
+                            {movieGenre?.slice(0, 2)?.map((genre, index) => (
                                 <span
                                     key={genre.id}
                                     className="px-2 py-1 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-white text-xs font-medium hover:bg-white/20 transition-colors duration-300"
@@ -91,6 +91,8 @@ const MovieCard = ({ ...movieItem }) => {
                         </div>
                     </div>
 
+                {/* This parent container must be flex-col and take up the remaining space */}
+                <div className="flex flex-col flex-grow p-4">
                     {/* Overview Preview */}
                     {movieItem.overview && (
                         <p className="text-gray-300 text-xs sm:text-xs md:text-sm font-inter leading-relaxed line-clamp-2 sm:line-clamp-2 md:line-clamp-3">
@@ -99,13 +101,14 @@ const MovieCard = ({ ...movieItem }) => {
                     )}
 
                     {/* Action Buttons */}
-                    <div className="flex space-x-2 pt-2 mt-auto">
+                <div className="flex space-x-2 pt-4 mt-auto">
                         <button className="flex-1 px-2 sm:px-3 py-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30 rounded-lg text-white text-xs sm:text-xs md:text-sm font-medium hover:from-purple-500/30 hover:to-pink-500/30 transition-all duration-300 transform hover:scale-105 whitespace-nowrap">
                             ❤️ Watchlist
                         </button>
                         <button className="px-2 sm:px-3 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg text-white text-sm font-medium hover:bg-white/20 transition-all duration-300 transform hover:scale-105">
                             📤
                         </button>
+                    </div>
                     </div>
                 </div>
 
